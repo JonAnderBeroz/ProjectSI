@@ -181,7 +181,9 @@ public class ProfilePanel extends JPanel {
 					Path source = Paths.get(selectedfile.getAbsolutePath());
 					Path dest = Paths.get("images/profilepic/" + selectedfile.getName());
 					File f = new File("images/profilepic/" + selectedfile.getName());
-					f.delete();
+				
+				     f.delete();
+					
 					Files.copy(source, dest);
 					imageFeedbackLabel.setText("Update sucessful");
 					imageFeedbackLabel.setForeground(new Color(0, 153, 0));

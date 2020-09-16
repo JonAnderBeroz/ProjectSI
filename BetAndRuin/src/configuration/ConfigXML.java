@@ -76,7 +76,8 @@ public class ConfigXML {
 		  try {
 			  DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			  DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			  Document doc = dBuilder.parse(new File(configFile));
+			  File configuration = new File(configFile);
+			  Document doc = dBuilder.parse(configuration);
 			  doc.getDocumentElement().normalize();
 
 			  NodeList list = doc.getElementsByTagName("config");

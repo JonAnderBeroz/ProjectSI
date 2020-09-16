@@ -1,6 +1,7 @@
 package dataAccess;
 
 import java.io.File;
+import java.security.SecureRandom;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ import exceptions.invalidPW;
 public class DataAccessImplementation implements DataAccess {
 	
 	protected static EntityManagerFactory emf;
+	private Random rand = new Random();
 	private String fileName;
 	ConfigXML c;
 	
@@ -1245,8 +1247,7 @@ public class DataAccessImplementation implements DataAccess {
 		db.getTransaction().begin();
 		for(Event e : events) {
 			for(Question q : e.getQuestions()) {
-				Random r = new Random();
-				int random = r.nextInt(q.getPredictions().size()-1);
+				int random = rand.nextInt(q.getPredictions().size()-1);
 				for(Prediction p: q.getPredictions()) {
 					p.setOutcome(false);
 				}
