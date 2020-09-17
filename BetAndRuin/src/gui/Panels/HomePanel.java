@@ -233,12 +233,13 @@ public class HomePanel extends JPanel {
 				Image img = null;
 				try {
 					img = ImageIO.read(new File(newslist.get(i-1)));
+					newsImageLabel.setIcon(new ImageIcon(img.getScaledInstance(
+							260,260, Image.SCALE_SMOOTH)));
+
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				newsImageLabel.setIcon(new ImageIcon(img.getScaledInstance(
-						260,260, Image.SCALE_SMOOTH)));
-
+				
 			}
 		});
 		t.start();

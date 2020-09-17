@@ -166,7 +166,7 @@ public class AddCreditCardGUI extends JDialog {
 
 				boolean valid = true;
 				
-				if(number1TextField.getText().equals("") || number2TextField.getText().equals("") || number3TextField.getText().equals("") || number3TextField.getText().equals("") 
+				if(number1TextField.getText().equals("") || number2TextField.getText().equals("") || number3TextField.getText().equals("")
 					||	monthTextField.getText().equals("") || yearTextField.getText().equals("") || securityCodeTextField.getText().equals("")) {
 					valid = false;
 					fillAllAreasLabel.setVisible(true);	
