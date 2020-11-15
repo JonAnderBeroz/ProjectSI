@@ -3,6 +3,7 @@ package businessLogic;
 import java.util.Vector;
 import java.io.File;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import domain.Question;
 import domain.Sport;
@@ -30,6 +31,8 @@ import exceptions.QuestionAlreadyExist;
 import exceptions.QuestionNotFound;
 import exceptions.invalidID;
 import exceptions.invalidPW;
+import patterns.ExtendedIterator;
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
@@ -78,7 +81,9 @@ public interface BLFacade  {
 	 * @param date in which events are retrieved
 	 * @return collection of events
 	 */
-	@WebMethod public Vector<Event> getEvents(Date date);
+	///@WebMethod public Vector<Event> getEvents(Date date);
+	
+	public Iterator<Event> getEvents(Date date);
 
 	/**
 	 * This method retrieves the events of a given date and sport 

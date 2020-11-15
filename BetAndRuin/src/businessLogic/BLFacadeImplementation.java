@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Vector;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import dataAccess.DataAccessImplementation;
@@ -41,6 +43,8 @@ import exceptions.QuestionAlreadyExist;
 import exceptions.QuestionNotFound;
 import exceptions.invalidID;
 import exceptions.invalidPW;
+import patterns.EventExtendedIterator;
+import patterns.ExtendedIterator;
 
 /**
  * It implements the business logic as a web service.
@@ -106,6 +110,18 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.createCompetition(count,sport,comp,date);
 	}	
 
+//	/**
+//	 * This method invokes the data access to retrieve the events of a given date 
+//	 * 
+//	 * @param date in which events are retrieved
+//	 * @return collection of events
+//	 */
+//	@WebMethod	
+//	public Vector<Event> getEvents(Date date)  {
+//		Vector<Event>  events=dbManager.getEvents(date);
+//		return events;
+//	}
+	
 	/**
 	 * This method invokes the data access to retrieve the events of a given date 
 	 * 
@@ -113,8 +129,8 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @return collection of events
 	 */
 	@WebMethod	
-	public Vector<Event> getEvents(Date date)  {
-		Vector<Event>  events=dbManager.getEvents(date);
+	public EventExtendedIterator getEvents(Date date)  {
+		EventExtendedIterator events= new EventExtendedIterator(dbManager.getEvents(date));
 		return events;
 	}
 
