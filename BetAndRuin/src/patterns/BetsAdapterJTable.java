@@ -24,7 +24,7 @@ public class BetsAdapterJTable extends AbstractTableModel {
 		this.bc = bc;
 	}
 	@Override
-	public int getColumnCount() {
+	public int getColumnCount(){
 		return  colNames.length	;
 	}
 
@@ -50,6 +50,7 @@ public class BetsAdapterJTable extends AbstractTableModel {
 		return null;
 	}
 	
+	@Override
 	 public String getColumnName(int col) {
 	      return colNames[col];
 	   }

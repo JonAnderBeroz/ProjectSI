@@ -6,7 +6,7 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
 import configuration.ConfigXML;
-
+import patterns.BlFactory;
 import businessLogic.BLFacade;
 import businessLogic.BLFacadeImplementation;
 
@@ -25,12 +25,13 @@ public class ApplicationLauncher {
 		try {
 			
 			BLFacade appFacadeInterface;
+			BlFactory blf = new BlFactory();
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
 //			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 			if (c.isBusinessLogicLocal()) {
 				
-			 appFacadeInterface= new BLFacadeImplementation();
+			 appFacadeInterface= new BLFacadeImplementation(blf);
 						
 			}
 			

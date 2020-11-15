@@ -10,7 +10,8 @@ import domain.Event;
 public class test {
 
 	public static void main(String[] args) {
-		BLFacadeImplementation bf = new BLFacadeImplementation();
+		BlFactory blf = new BlFactory();
+		BLFacadeImplementation bf = new BLFacadeImplementation(blf);
 		SimpleDateFormat df = new SimpleDateFormat("HH:mm dd/MM/yyyy");
 		Date date;
 		try {

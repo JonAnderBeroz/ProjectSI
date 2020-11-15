@@ -43,6 +43,7 @@ import exceptions.QuestionAlreadyExist;
 import exceptions.QuestionNotFound;
 import exceptions.invalidID;
 import exceptions.invalidPW;
+import patterns.BlFactory;
 import patterns.EventExtendedIterator;
 import patterns.ExtendedIterator;
 
@@ -54,16 +55,8 @@ public class BLFacadeImplementation  implements BLFacade {
 
 	private DataAccess dbManager;
 
-	public BLFacadeImplementation()  {	
-		System.out.println("Creating BLFacadeImplementation instance");
-		ConfigXML c=ConfigXML.getInstance();
-		if(c.getDataBaseOpenMode().equals("initialize")) {
-			dbManager=new DataAccessImplementation(true);
-			dbManager.initializeDB();
-		}
-		else {
-			dbManager=new DataAccessImplementation(false);
-		}
+	public BLFacadeImplementation(BlFactory blf)  {	
+		 dbManager = blf.createBl();
 	} 
 
 	/** 
